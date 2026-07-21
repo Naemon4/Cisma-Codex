@@ -6,8 +6,14 @@ export class DiceRoll extends Model {
   @Column({ type: DataType.INTEGER, autoIncrement: true, primaryKey: true })
   declare id: number;
 
-  // TODO: adicionar os campos específicos desse sub-módulo aqui
-  // (consultar ficha-submodulos.md pra ver as colunas esperadas)
+  @Column({ type: DataType.STRING, allowNull: false })
+  declare formula: string;
+
+  @Column({ type: DataType.ARRAY(DataType.INTEGER), allowNull: false })
+  declare results: number[];
+
+  @Column({ type: DataType.INTEGER, allowNull: false })
+  declare total: number;
 
   @ForeignKey(() => Sheet)
   @Column({ type: DataType.INTEGER, allowNull: false })

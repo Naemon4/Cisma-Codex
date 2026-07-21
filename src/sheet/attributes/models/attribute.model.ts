@@ -6,13 +6,15 @@ export class Attribute extends Model {
   @Column({ type: DataType.INTEGER, autoIncrement: true, primaryKey: true })
   declare id: number;
 
-  @Column({ type: DataType.STRING, allowNull: false })
-  declare name: string;
+  @Column({ type: DataType.STRING, allowNull: false, defaultValue: "New Attribute" })
+  declare title: string;
 
   @Column({ type: DataType.INTEGER, allowNull: false, defaultValue: 0 })
   declare value: number;
 
-  // Conforme o mapa mental: atributo pode ser "normal" ou "duplo"
+  @Column({ type: DataType.INTEGER, allowNull: false, defaultValue: 0 })
+  declare doubleValue: number;
+
   @Column({ type: DataType.ENUM('normal', 'double'), allowNull: false, defaultValue: 'normal' })
   declare type: 'normal' | 'double';
 

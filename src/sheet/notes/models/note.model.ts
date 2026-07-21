@@ -6,8 +6,11 @@ export class Note extends Model {
   @Column({ type: DataType.INTEGER, autoIncrement: true, primaryKey: true })
   declare id: number;
 
-  // TODO: adicionar os campos específicos desse sub-módulo aqui
-  // (consultar ficha-submodulos.md pra ver as colunas esperadas)
+  @Column({ type: DataType.STRING, defaultValue: "New note" })
+  declare title: string;
+
+  @Column({ type: DataType.STRING, defaultValue: "New note" })
+  declare body: string;
 
   @ForeignKey(() => Sheet)
   @Column({ type: DataType.INTEGER, allowNull: false })
